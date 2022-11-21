@@ -21,7 +21,7 @@ const FormularioRestaurante = () => {
         evento.preventDefault();
 
         if (parametros.id) {
-            http.put(`hrestaurantes/${parametros.id}/`, {
+            http.put(`restaurantes/${parametros.id}/`, {
                 nome: nomeRestaurante
             })
                 .then(() => {
@@ -40,20 +40,22 @@ const FormularioRestaurante = () => {
     }
 
     return (
-        <Box sx={{display: 'flex', flexDirection: "column", alignItems: "center"}}>
-            <Typography component="h1" variant="h6">Formulário de Restaurantes</Typography>
-            <Box component="form" onSubmit={aoSubmeterForm}>
-                <TextField
-                    value={nomeRestaurante}
-                    onChange={evento => setNomeRestaurante(evento.target.value)}
-                    label="Nome do Restaurante"
-                    variant="standard"
-                    fullWidth
-                    required
-                />
-                <Button sx={{marginTop: 1}} type="submit" variant="outlined" fullWidth>Salvar</Button>
+        <>
+            <Box sx={{ display: 'flex', flexDirection: "column", alignItems: "center", flexGrow: 1 }}>
+                <Typography component="h1" variant="h6">Formulário de Restaurantes</Typography>
+                <Box component="form" sx={{ width: "100%" }} onSubmit={aoSubmeterForm}>
+                    <TextField
+                        value={nomeRestaurante}
+                        onChange={evento => setNomeRestaurante(evento.target.value)}
+                        label="Nome do Restaurante"
+                        variant="standard"
+                        fullWidth
+                        required
+                    />
+                    <Button sx={{ marginTop: 1 }} type="submit" variant="outlined" fullWidth>Salvar</Button>
+                </Box>
             </Box>
-        </Box>
+        </>
     )
 }
 
